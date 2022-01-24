@@ -10,10 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.sikuli.script.Finder;
-import org.sikuli.script.Match;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import util.WebEventListener;
@@ -497,22 +493,6 @@ public abstract class BasePage {
             return false;
         } catch (TimeoutException e) {
             return true;
-        }
-    }
-
-    public boolean checkImageDisplayOnScreen(String imageName) throws IOException {
-        Screen screen = new Screen();
-        Pattern pa1 = new Pattern(System.getProperty("user.dir")+ "/src/test/resources/" + imageName);
-        Finder finder = new Finder(screen.capture().getFile());
-        finder.find(pa1);
-        if (finder.hasNext()){
-            Match m = finder.next();
-            System.out.println("Match Found with "+(m.getScore())*100+"%");
-            finder.destroy();
-            return true;
-        } else {
-            System.err.println("No Match Found");
-            return false;
         }
     }
 
