@@ -277,16 +277,6 @@ public abstract class BasePage {
 
     public void refreshPage(){
         driver.navigate().refresh();
-//        FluentWait wait = new FluentWait(driver);
-//        wait.withTimeout(Duration.ofSeconds(WaitTime.S));
-//        wait.pollingEvery(Duration.ofMillis(300));
-////        WebDriverWait wait = new WebDriverWait(driver, 5 /*timeout in seconds*/);
-//        if(wait.until(ExpectedConditions.alertIsPresent())==null){
-//            System.out.println("alert was not present");
-//        } else {
-//            Alert alert = driver.switchTo().alert();
-//            alert.accept();
-//        }
         try {
             FluentWait wait = new FluentWait(driver);
             wait.withTimeout(Duration.ofSeconds(WaitTime.XL));
@@ -662,6 +652,5 @@ public abstract class BasePage {
         String dateFormat = formatter.format(date);
         return dateFormat;
     }
-
 
 }
