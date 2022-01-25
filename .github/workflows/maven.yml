@@ -3,11 +3,6 @@ name: Build and Test
 on: [push]
 
 jobs:
-  install_chrome:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
   build:
     runs-on: ubuntu-latest
     steps:
