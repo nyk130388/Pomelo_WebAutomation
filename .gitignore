@@ -6,9 +6,6 @@
 #screenshot
 /screenshots
 
-#output
-/test-output
-
 ### Maven ###
 target/
 pom.xml.tag
