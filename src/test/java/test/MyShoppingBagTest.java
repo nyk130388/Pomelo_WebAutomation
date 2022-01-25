@@ -24,7 +24,11 @@ public class MyShoppingBagTest extends BaseTest {
                 .gotoCategoryPage(firstName, category, category)
                 .addProductToBag(0)
                 .addItemsToBag("L")
+                .gotoCategoryPage(category,category)
+                .addProductToBag(2)
+                .addItemsToBag("L")
                 .adjustProductQtyInBag("2")
+                .removeItemsFromBag(1)
                 .proceedToCheckout()
                 .isCheckoutPage();
 

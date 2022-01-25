@@ -175,6 +175,12 @@ public abstract class BasePage {
         element.click();
     }
 
+    public void clickCenterOfScreen() {
+        Dimension center = driver.manage().window().getSize();
+        Actions builder = new Actions(driver);
+        builder.moveByOffset(center.width/2, center.height/2).click().build().perform();
+    }
+
     public void mouseHover(WebElement element){
         FluentWait wait = new FluentWait(driver);
         wait.withTimeout(Duration.ofSeconds(WaitTime.XL));
