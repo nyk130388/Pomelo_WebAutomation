@@ -13,6 +13,8 @@ public class ProductDetailsPage extends MenuLinksPage {
     private By QUANTITYOPTIONS = By.cssSelector(".cart-item-info__quantity .pml-dropdown__select");
     private By CHECKOUTBUTTON = By.xpath("//span[contains(text(),'proceed to Checkout')]");
     private By REMOVEICONS = By.cssSelector(".cart-remove");
+    private By PROMOCODE = By.xpath("//*[contains(@placeholder,\"Promo Code\")]");
+    private By APPLYPROMOBUTTON = By.xpath("(//*[contains(text(),\"Apply\")])[1]");
 
     public ProductDetailsPage addItemsToBag(String size) {
         List<WebElement> allSize = waitAndReturnElementListIfDisplayed(ALLSIZE);
@@ -42,6 +44,12 @@ public class ProductDetailsPage extends MenuLinksPage {
 
     public ProductDetailsPage adjustProductQtyInBag(String quantity) {
         selectDropDownByTitle(waitAndReturnElementIfDisplayed(QUANTITYOPTIONS),quantity);
+        return this;
+    }
+
+    public ProductDetailsPage applyPromoCode(String promoCode) {
+        sendKeyToElement(PROMOCODE, promoCode);
+        clickOnElement(APPLYPROMOBUTTON);
         return this;
     }
 

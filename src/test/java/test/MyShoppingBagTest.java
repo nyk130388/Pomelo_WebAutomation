@@ -12,7 +12,7 @@ public class MyShoppingBagTest extends BaseTest {
     @Test
     public void createAccountTest() {
         String email = "nyk130388+"+getRandomKey(3)+"@gmail.com";
-        String firstName = email.split("@")[1];
+        String firstName = email.split("@")[0];
         String lastName = "Khan";
         String password = getRandomKey();
         String category = "New Arrivals";
@@ -29,6 +29,7 @@ public class MyShoppingBagTest extends BaseTest {
                 .addItemsToBag("L")
                 .adjustProductQtyInBag("2")
                 .removeItemsFromBag(1)
+                .applyPromoCode(category)
                 .proceedToCheckout()
                 .isCheckoutPage();
 
